@@ -64,7 +64,7 @@ SVGSpritemapPlugin.prototype.apply = function(compiler) {
                 return;
             }
 
-            console.log('\nSVG spritesheet', svg);
+            console.log('\nSVG spritesheet..');
             compilation.options.iconsDef = svg;
 
             var source = new RawSource(svg);
