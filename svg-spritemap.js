@@ -46,6 +46,7 @@ SVGSpritemapPlugin.prototype.apply = function(compiler) {
                 return;
             }
 
+            console.log('\nSVG spritesheet', svg);
             var source = new RawSource(svg);
             var sourceChunk = compilation.namedChunks[options.chunk];
             var filename = options.filename
@@ -88,7 +89,7 @@ SVGSpritemapPlugin.prototype.apply = function(compiler) {
         });
 
         var generateSVG = function() {
-            console.log('SVG Generating sprite map', files);
+            console.log('\nSVG Generating sprite map', files);
             // No point in generating when there are no files
             if ( !files.length ) {
                 return false;
