@@ -33,6 +33,24 @@ SVGSpritemapPlugin.prototype.apply = function(compiler) {
         files = glob.sync(options.src, options.glob);
 
     compiler.plugin('this-compilation', function(compilation) {
+      compilation.plugin('html-webpack-plugin-before-html-generation', function(htmlPluginData, callback) {
+
+          console.log('Process before html generation');
+         callback(null, htmlPluginData);
+      });
+      //   const locations = self.locations;
+      //
+      //   if (locations) {
+      //     const publicPath = htmlPluginData.assets.publicPath;
+      //
+      //     Object.getOwnPropertyNames(locations).forEach(function(loc) {
+      //       compilation.options.htmlElements[loc] = getHtmlElementString(locations[loc], publicPath);
+      //     });
+      //   }
+      //
+      //   callback(null, htmlPluginData);
+      // });
+
         compilation.plugin('optimize-chunks', function optmizeChunks(chunks) {
             if ( files.length ) {
                 // Add new chunk for spritemap
@@ -47,6 +65,8 @@ SVGSpritemapPlugin.prototype.apply = function(compiler) {
             }
 
             console.log('\nSVG spritesheet', svg);
+            compilation.options.iconsDef = svg;
+
             var source = new RawSource(svg);
             var sourceChunk = compilation.namedChunks[options.chunk];
             var filename = options.filename
