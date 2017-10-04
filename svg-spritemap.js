@@ -88,6 +88,7 @@ SVGSpritemapPlugin.prototype.apply = function(compiler) {
         });
 
         var generateSVG = function() {
+            console.log('SVG Generating sprite map', files);
             // No point in generating when there are no files
             if ( !files.length ) {
                 return false;
