@@ -1,0 +1,8 @@
+$sprites: (
+    /* SPRITES */
+);
+
+@mixin sprite($name) {
+    $sprite: map-get($sprites, $name);
+    background: url($sprite) center no-repeat;
+}

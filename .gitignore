@@ -1,3 +1,10 @@
-node_modules/
+/node_modules
+/coverage
 .idea/
-svg4everybody-helper.js
+
+# Generated files
+/svg4everybody-helper.js
+/*.css
+/*.scss
+/*.sass
+/*.less
